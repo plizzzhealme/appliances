@@ -2,7 +2,7 @@ package io.github.plizzzhealme.appliance.entity;
 
 import java.util.Objects;
 
-public class Oven extends Appliance{
+public class Oven extends Appliance {
 
     private int width;
     private int height;

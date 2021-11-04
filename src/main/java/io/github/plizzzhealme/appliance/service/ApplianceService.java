@@ -5,8 +5,9 @@ import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 
 import java.util.List;
 
-public interface ApplianceService {	
-	
-	List<Appliance> find(Criteria criteria);
-	boolean add(Appliance appliance);
+public interface ApplianceService {
+
+    List<Appliance> find(Criteria criteria);
+
+    boolean add(Appliance appliance);
 }

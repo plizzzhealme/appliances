@@ -2,7 +2,7 @@ package io.github.plizzzhealme.appliance.entity;
 
 import java.util.Objects;
 
-public class Kettle extends Appliance{
+public class Kettle extends Appliance {
 
     private int powerConsumption;
     private String bodyMaterial;

@@ -2,7 +2,7 @@ package io.github.plizzzhealme.appliance.entity;
 
 import java.util.Objects;
 
-public class TabletPC extends Appliance{
+public class TabletPC extends Appliance {
 
     private String cpuModel;
     private int ram;

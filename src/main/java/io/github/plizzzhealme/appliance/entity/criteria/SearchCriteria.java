@@ -4,9 +4,9 @@ public class SearchCriteria {
 
     public enum Appliance {
 
-        BRAND ("brand"),
-        MODEL ("model"),
-        PRICE ("price");
+        BRAND("brand"),
+        MODEL("model"),
+        PRICE("price");
 
         public final String value;
 

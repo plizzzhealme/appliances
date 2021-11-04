@@ -4,17 +4,19 @@ package io.github.plizzzhealme.appliance.dao;
 import io.github.plizzzhealme.appliance.dao.impl.XMLApplianceDAO;
 
 public final class DAOFactory {
-	private static final DAOFactory instance = new DAOFactory();
 
-	private final ApplianceSourceDAO applianceDAO = new XMLApplianceDAO();
-	
-	private DAOFactory() {}
+    private static final DAOFactory instance = new DAOFactory();
 
-	public ApplianceSourceDAO getApplianceDAO() {
-		return applianceDAO;
-	}
+    private final ApplianceSourceDAO applianceDAO = new XMLApplianceDAO();
 
-	public static DAOFactory getInstance() {
-		return instance;
-	}
+    private DAOFactory() {
+    }
+
+    public static DAOFactory getInstance() {
+        return instance;
+    }
+
+    public ApplianceSourceDAO getApplianceDAO() {
+        return applianceDAO;
+    }
 }

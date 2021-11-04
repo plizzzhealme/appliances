@@ -8,10 +8,9 @@ import io.github.plizzzhealme.appliance.service.ServiceFactory;
 
 import java.util.List;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+
+    public static void main(String[] args) {
         ServiceFactory serviceFactory;
         ApplianceService applianceService;
         List<Appliance> appliances;
