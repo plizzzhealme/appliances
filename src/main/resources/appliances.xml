@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appliances>
-    <appliance type="oven" price="100" brand="samsung" model="so one" width="50"
-               height="30" depth="30" minpower="300" maxpower="800"/>
-    <appliance type="oven" price="30" brand="hell's tools" model="mega burner 2021" width="500"
-               height="500" depth="500" minpower="666" maxpower="13666"/>
+    <appliance type="oven" price="100" brand="samsung" model="so one"
+               width="50" height="30" depth="30" minOutputPower="300" maxOutputPower="800"/>
 
-    <appliance type="tabletPC" price="200" brand="samsung" model="st one" cpu="intel" ram="4096" ssd="250"/>
+    <appliance type="oven" price="30" brand="hell's tools" model="mega burner 2021"
+               width="500" height="500" depth="500" minOutputPower="666" maxOutputPower="13666"/>
 
-    <appliance type="kettle" price="20" brand="integral" model="ketler" capacity="2" power="1000" body="glass"/>
-    <appliance type="kettle" price="20" brand="boiler" model="13" capacity="1" power="900" body="metal"/>
+    <appliance type="tabletPC" price="200" brand="samsung" model="st one"
+               cpuModel="intel" ram="4096" ssdCapacity="250"/>
+
+    <appliance type="kettle" price="20" brand="integral" model="ketler"
+               capacityInLitres="2" powerConsumption="1000" bodyMaterial="glass"/>
+
+    <appliance type="kettle" price="20" brand="boiler" model="13"
+               capacityInLitres="1" powerConsumption="900" bodyMaterial="metal"/>
 </appliances>

@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.plizzzhealme.appliance.entity.Appliance;
-import io.github.plizzzhealme.appliance.entity.Kettle;
-import io.github.plizzzhealme.appliance.entity.Oven;
-import io.github.plizzzhealme.appliance.entity.TabletPC;
+import io.github.plizzzhealme.appliance.entity.*;
+import io.github.plizzzhealme.appliance.entity.criteria.SearchCriteria;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -30,6 +28,7 @@ public class ApplianceXmlParser {
 
 		appliancesFromXML = new ArrayList<>();
 		factory = SAXParserFactory.newInstance();
+		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 		parser = factory.newSAXParser();
 		handler= new XMLHandler();
 
@@ -58,41 +57,40 @@ public class ApplianceXmlParser {
 				if (appliance != null) {
 					appliancesFromXML.add(appliance);
 				}
-
 			}
 		}
 
 		private Kettle buildKettle(Attributes attributes) {
-			String brand = attributes.getValue("brand");
-			String model = attributes.getValue("model");
-			int price = Integer.parseInt(attributes.getValue("price"));
-			int powerConsumption = Integer.parseInt(attributes.getValue("power"));
-			int capacityInLitres = Integer.parseInt(attributes.getValue("capacity"));
-			String bodyMaterial = attributes.getValue("body");
+			String brand = attributes.getValue(SearchCriteria.Appliance.BRAND.value);
+			String model = attributes.getValue(SearchCriteria.Appliance.MODEL.value);
+			int price = Integer.parseInt(attributes.getValue(SearchCriteria.Appliance.PRICE.value));
+			int powerConsumption = Integer.parseInt(attributes.getValue(SearchCriteria.Kettle.POWER_CONSUMPTION.value));
+			int capacityInLitres = Integer.parseInt(attributes.getValue(SearchCriteria.Kettle.CAPACITY_IN_LITRES.value));
+			String bodyMaterial = attributes.getValue(SearchCriteria.Kettle.BODY_MATERIAL.value);
 
 			return new Kettle(brand, model, price, powerConsumption, bodyMaterial, capacityInLitres);
 		}
 
 		private TabletPC buildTabletPC(Attributes attributes) {
-			String brand = attributes.getValue("brand");
-			String model = attributes.getValue("model");
-			int price = Integer.parseInt(attributes.getValue("price"));
-			String cpuModel = attributes.getValue("cpu");
-			int ram = Integer.parseInt(attributes.getValue("ram"));
-			int ssdVolume = Integer.parseInt(attributes.getValue("ssd"));
+			String brand = attributes.getValue(SearchCriteria.Appliance.BRAND.value);
+			String model = attributes.getValue(SearchCriteria.Appliance.MODEL.value);
+			int price = Integer.parseInt(attributes.getValue(SearchCriteria.Appliance.PRICE.value));
+			String cpuModel = attributes.getValue(SearchCriteria.TabletPC.CPU_MODEL.value);
+			int ram = Integer.parseInt(attributes.getValue(SearchCriteria.TabletPC.RAM.value));
+			int ssdCapacity = Integer.parseInt(attributes.getValue(SearchCriteria.TabletPC.SSD_CAPACITY.value));
 
-			return new TabletPC(brand, model, price, cpuModel, ram, ssdVolume);
+			return new TabletPC(brand, model, price, cpuModel, ram, ssdCapacity);
 		}
 
 		private Oven buildOven(Attributes attributes) {
-			String brand = attributes.getValue("brand");
-			String model = attributes.getValue("model");
-			int price = Integer.parseInt(attributes.getValue("price"));
-			int width = Integer.parseInt(attributes.getValue("width"));
-			int height = Integer.parseInt(attributes.getValue("height"));
-			int depth = Integer.parseInt(attributes.getValue("depth"));
-			int minPower = Integer.parseInt(attributes.getValue("minpower"));
-			int maxPower = Integer.parseInt(attributes.getValue("maxpower"));
+			String brand = attributes.getValue(SearchCriteria.Appliance.BRAND.value);
+			String model = attributes.getValue(SearchCriteria.Appliance.MODEL.value);
+			int price = Integer.parseInt(attributes.getValue(SearchCriteria.Appliance.PRICE.value));
+			int width = Integer.parseInt(attributes.getValue(SearchCriteria.Oven.WIDTH.value));
+			int height = Integer.parseInt(attributes.getValue(SearchCriteria.Oven.HEIGHT.value));
+			int depth = Integer.parseInt(attributes.getValue(SearchCriteria.Oven.DEPTH.value));
+			int minPower = Integer.parseInt(attributes.getValue(SearchCriteria.Oven.MIN_OUTPUT_POWER.value));
+			int maxPower = Integer.parseInt(attributes.getValue(SearchCriteria.Oven.MAX_OUTPUT_POWER.value));
 
 			return new Oven(brand, model, price, width, height, depth, minPower, maxPower);
 		}

@@ -1,7 +1,7 @@
 package io.github.plizzzhealme.appliance.dao.impl;
 
 import io.github.plizzzhealme.appliance.entity.Appliance;
-import io.github.plizzzhealme.appliance.entity.Criteria;
+import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 
 import java.util.ArrayList;
 import java.util.List;

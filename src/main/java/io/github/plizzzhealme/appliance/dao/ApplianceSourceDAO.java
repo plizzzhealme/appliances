@@ -3,7 +3,7 @@ package io.github.plizzzhealme.appliance.dao;
 import java.util.List;
 
 import io.github.plizzzhealme.appliance.entity.Appliance;
-import io.github.plizzzhealme.appliance.entity.Criteria;
+import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 
 public interface ApplianceSourceDAO {
 	List<Appliance> find(Criteria criteria);

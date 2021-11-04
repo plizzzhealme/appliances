@@ -6,13 +6,13 @@ public class TabletPC extends Appliance{
 
     private String cpuModel;
     private int ram;
-    private int ssdVolume;
+    private int ssdCapacity;
 
-    public TabletPC(String brand, String model, int price, String cpuModel, int ram, int ssdVolume) {
+    public TabletPC(String brand, String model, int price, String cpuModel, int ram, int ssdCapacity) {
         super(brand, model, price);
         this.cpuModel = cpuModel;
         this.ram = ram;
-        this.ssdVolume = ssdVolume;
+        this.ssdCapacity = ssdCapacity;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TabletPC extends Appliance{
                 " model=" + getModel() +
                 " cpuModel=" + cpuModel +
                 " ram=" + ram +
-                " ssdVolume=" + ssdVolume +
+                " ssdCapacity=" + ssdCapacity +
                 "} ";
     }
 
@@ -42,13 +42,13 @@ public class TabletPC extends Appliance{
         }
 
         return getRam() == tabletPC.getRam()
-                && getSsdVolume() == tabletPC.getSsdVolume()
+                && getSsdCapacity() == tabletPC.getSsdCapacity()
                 && getCpuModel().equals(tabletPC.getCpuModel());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCpuModel(), getRam(), getSsdVolume());
+        return Objects.hash(super.hashCode(), getCpuModel(), getRam(), getSsdCapacity());
     }
 
     public String getCpuModel() {
@@ -67,11 +67,11 @@ public class TabletPC extends Appliance{
         this.ram = ram;
     }
 
-    public int getSsdVolume() {
-        return ssdVolume;
+    public int getSsdCapacity() {
+        return ssdCapacity;
     }
 
-    public void setSsdVolume(int ssdVolume) {
-        this.ssdVolume = ssdVolume;
+    public void setSsdCapacity(int ssdCapacity) {
+        this.ssdCapacity = ssdCapacity;
     }
 }

@@ -3,6 +3,7 @@ package io.github.plizzzhealme.appliance.dao.impl;
 import java.io.IOException;
 import java.util.List;
 
+import io.github.plizzzhealme.appliance.dao.exception.DaoException;
 import io.github.plizzzhealme.appliance.entity.Appliance;
 import org.xml.sax.SAXException;
 
@@ -12,7 +13,7 @@ public class ApplianceRepository {
 
 	private static final ApplianceRepository instance = new ApplianceRepository();
 
-	private List<Appliance> data;
+	private final List<Appliance> data;
 	
 	private ApplianceRepository() {
 		ApplianceXmlParser parser = new ApplianceXmlParser();
@@ -20,8 +21,7 @@ public class ApplianceRepository {
 		try {
 			data = parser.parse();
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// todo process exceptions
-			e.printStackTrace();
+			throw new DaoException(e.getMessage());
 		}
 	}
 	

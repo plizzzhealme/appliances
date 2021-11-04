@@ -3,7 +3,7 @@ package io.github.plizzzhealme.appliance.dao.impl;
 import java.util.List;
 
 import io.github.plizzzhealme.appliance.entity.Appliance;
-import io.github.plizzzhealme.appliance.entity.Criteria;
+import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 import io.github.plizzzhealme.appliance.dao.ApplianceSourceDAO;
 
 public class XMLApplianceDAO implements ApplianceSourceDAO {

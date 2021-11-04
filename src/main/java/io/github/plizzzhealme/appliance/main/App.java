@@ -1,7 +1,8 @@
 package io.github.plizzzhealme.appliance.main;
 
 import io.github.plizzzhealme.appliance.entity.Appliance;
-import io.github.plizzzhealme.appliance.entity.Criteria;
+import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
+import io.github.plizzzhealme.appliance.entity.criteria.SearchCriteria;
 import io.github.plizzzhealme.appliance.service.ApplianceService;
 import io.github.plizzzhealme.appliance.service.ServiceFactory;
 
@@ -15,6 +16,8 @@ public class App
         ApplianceService applianceService;
         List<Appliance> appliances;
         Criteria criteria;
+
+        System.out.println(SearchCriteria.Appliance.BRAND.value);
 
         serviceFactory = ServiceFactory.getInstance();
         applianceService = serviceFactory.getApplianceService();

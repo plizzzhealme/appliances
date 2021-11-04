@@ -1,4 +1,4 @@
-package io.github.plizzzhealme.appliance.entity;
+package io.github.plizzzhealme.appliance.entity.criteria;
 
 import java.util.HashMap;
 import java.util.Map;
