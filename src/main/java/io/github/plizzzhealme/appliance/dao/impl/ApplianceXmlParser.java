@@ -16,14 +16,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class ApplianceXmlParser {
-
-    private static final String XML_SOURCE_PATH = "src/main/resources/appliances.xml";
+class ApplianceXmlParser {
 
     private List<Appliance> appliancesFromXML;
 
-    public List<Appliance> parse() throws ParserConfigurationException, SAXException, IOException {
+    public List<Appliance> parse(String xmlSourcePath) throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory factory;
         SAXParser parser;
         XMLHandler handler;
@@ -34,7 +33,7 @@ public class ApplianceXmlParser {
         parser = factory.newSAXParser();
         handler = new XMLHandler();
 
-        parser.parse(new File(XML_SOURCE_PATH), handler);
+        parser.parse(new File(xmlSourcePath), handler);
 
         return appliancesFromXML;
     }
@@ -47,11 +46,11 @@ public class ApplianceXmlParser {
                 Appliance appliance;
                 String applianceType;
 
-                applianceType = attributes.getValue("type");
+                applianceType = attributes.getValue("type").toLowerCase();
 
                 appliance = switch (applianceType) {
                     case "oven" -> buildOven(attributes);
-                    case "tabletPC" -> buildTabletPC(attributes);
+                    case "tabletpc" -> buildTabletPC(attributes);
                     case "kettle" -> buildKettle(attributes);
                     default -> null;
                 };

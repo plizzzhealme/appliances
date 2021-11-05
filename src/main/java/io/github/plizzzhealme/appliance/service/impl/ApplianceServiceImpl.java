@@ -21,6 +21,9 @@ public class ApplianceServiceImpl implements ApplianceService {
 
     @Override
     public boolean add(Appliance appliance) {
-        return false;
+        DAOFactory factory = DAOFactory.getInstance();
+        ApplianceSourceDAO applianceDAO = factory.getApplianceDAO();
+
+        return applianceDAO.add(appliance);
     }
 }

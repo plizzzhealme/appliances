@@ -1,17 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <appliances>
-    <appliance type="oven" price="100" brand="samsung" model="so one"
-               width="50" height="30" depth="30" minOutputPower="300" maxOutputPower="800"/>
-
-    <appliance type="oven" price="30" brand="hell's tools" model="mega burner 2021"
-               width="500" height="500" depth="500" minOutputPower="666" maxOutputPower="13666"/>
-
-    <appliance type="tabletPC" price="200" brand="samsung" model="st one"
-               cpuModel="intel" ram="4096" ssdCapacity="250"/>
-
-    <appliance type="kettle" price="20" brand="integral" model="ketler"
-               capacityInLitres="2" powerConsumption="1000" bodyMaterial="glass"/>
-
-    <appliance type="kettle" price="20" brand="boiler" model="13"
-               capacityInLitres="1" powerConsumption="900" bodyMaterial="metal"/>
+    <appliance brand="samsung" depth="30" height="30" maxOutputPower="800" minOutputPower="300" model="so one" price="100" type="Oven" width="50"/>
+    <appliance brand="hell's tools" depth="500" height="500" maxOutputPower="13666" minOutputPower="666" model="mega burner 2021" price="30" type="Oven" width="500"/>
+    <appliance brand="samsung" cpuModel="intel" model="st one" price="200" ram="4096" ssdCapacity="250" type="TabletPC"/>
+    <appliance bodyMaterial="glass" brand="integral" capacityInLitres="2" model="ketler" powerConsumption="1000" price="20" type="Kettle"/>
+    <appliance bodyMaterial="metal" brand="boiler" capacityInLitres="1" model="13" powerConsumption="900" price="20" type="Kettle"/>
+    <appliance brand="apple" cpuModel="i-proc" model="X" price="1000" ram="4096" ssdCapacity="200" type="TabletPC"/>
 </appliances>

@@ -8,7 +8,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.List;
 
-public class ApplianceRepository {
+class ApplianceRepository {
+
+    private static final String XML_SOURCE_PATH = "src/main/resources/appliances.xml";
 
     private static final ApplianceRepository instance = new ApplianceRepository();
 
@@ -18,7 +20,7 @@ public class ApplianceRepository {
         ApplianceXmlParser parser = new ApplianceXmlParser();
 
         try {
-            data = parser.parse();
+            data = parser.parse(XML_SOURCE_PATH);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new DaoException(e.getMessage());
         }
@@ -30,5 +32,14 @@ public class ApplianceRepository {
 
     public List<Appliance> getData() {
         return data;
+    }
+
+    public boolean addData(Appliance newAppliance) {
+        data.add(newAppliance);
+
+        ApplianceXmlSaver applianceXmlSaver = new ApplianceXmlSaver();
+        applianceXmlSaver.saveToXml(data, XML_SOURCE_PATH);
+
+        return true;
     }
 }

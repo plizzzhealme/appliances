@@ -17,24 +17,7 @@ public class XMLApplianceDAO implements ApplianceSourceDAO {
     }
 
     @Override
-    public boolean add(Appliance newAppliance) {
-        String type = newAppliance.getClass().getSimpleName();
-
-        switch (type) {
-            case "Oven":
-                // todo oven save
-                break;
-            case "Kettle":
-                // todo kettle save
-                break;
-            case "TabletPC":
-                // todo tablet save
-                break;
-            default:
-                //hmm..
-        }
-        // TODO Auto-generated method stub
-        return false;
+    public boolean add(Appliance appliance) {
+        return ApplianceRepository.getInstance().addData(appliance);
     }
-
 }

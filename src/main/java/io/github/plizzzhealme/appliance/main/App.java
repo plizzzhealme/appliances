@@ -1,6 +1,8 @@
 package io.github.plizzzhealme.appliance.main;
 
 import io.github.plizzzhealme.appliance.entity.Appliance;
+import io.github.plizzzhealme.appliance.entity.Kettle;
+import io.github.plizzzhealme.appliance.entity.TabletPC;
 import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 import io.github.plizzzhealme.appliance.entity.criteria.SearchCriteria;
 import io.github.plizzzhealme.appliance.service.ApplianceService;
@@ -39,6 +41,8 @@ public class App {
         criteria = new Criteria("Oven");
         appliances = applianceService.find(criteria);
         appliances.forEach(System.out::println);
+
+        applianceService.add(new TabletPC("apple", "X", 1000, "i-proc", 4096, 200));
 
     }
 }
