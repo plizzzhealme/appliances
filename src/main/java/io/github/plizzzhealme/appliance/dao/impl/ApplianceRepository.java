@@ -10,7 +10,7 @@ import java.util.List;
 
 class ApplianceRepository {
 
-    private static final String XML_SOURCE_PATH = "src/main/resources/appliances.xml";
+    private static final String XML_SOURCE_PATH = "appliances.xml";
 
     private static final ApplianceRepository instance = new ApplianceRepository();
 

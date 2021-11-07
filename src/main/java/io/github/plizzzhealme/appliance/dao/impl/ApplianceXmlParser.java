@@ -1,5 +1,6 @@
 package io.github.plizzzhealme.appliance.dao.impl;
 
+import io.github.plizzzhealme.appliance.dao.exception.DaoException;
 import io.github.plizzzhealme.appliance.entity.Appliance;
 import io.github.plizzzhealme.appliance.entity.Kettle;
 import io.github.plizzzhealme.appliance.entity.Oven;
@@ -14,9 +15,9 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 class ApplianceXmlParser {
 
@@ -25,20 +26,33 @@ class ApplianceXmlParser {
     public List<Appliance> parse(String xmlSourcePath) throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory factory;
         SAXParser parser;
-        XMLHandler handler;
+        ApplianceXMLHandler handler;
+        File applianceXMLSourceFile;
 
         appliancesFromXML = new ArrayList<>();
+
         factory = SAXParserFactory.newInstance();
         factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         parser = factory.newSAXParser();
-        handler = new XMLHandler();
+        handler = new ApplianceXMLHandler();
+        applianceXMLSourceFile = createApplianceSourceFileInstance(xmlSourcePath);
 
-        parser.parse(new File(xmlSourcePath), handler);
+        parser.parse(applianceXMLSourceFile, handler);
 
         return appliancesFromXML;
     }
 
-    private class XMLHandler extends DefaultHandler {
+    private File createApplianceSourceFileInstance(String xmlSourcePath) {
+        URL xmlSourceURL = getClass().getClassLoader().getResource(xmlSourcePath);
+
+        if (xmlSourceURL == null) {
+            throw new DaoException("File is not found");
+        }
+
+        return new File(xmlSourceURL.getPath());
+    }
+
+    private class ApplianceXMLHandler extends DefaultHandler {
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) {

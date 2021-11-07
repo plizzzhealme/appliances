@@ -5,7 +5,7 @@ import io.github.plizzzhealme.appliance.entity.criteria.Criteria;
 
 import java.util.List;
 
-public interface ApplianceSourceDAO {
+public interface ApplianceDAO {
 
     List<Appliance> find(Criteria criteria);
 

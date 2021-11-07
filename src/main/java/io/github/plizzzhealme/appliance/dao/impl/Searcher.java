@@ -30,7 +30,9 @@ class Searcher {
     private List<Appliance> filterAppliances(List<String> searchCriteria) {
         return repository.getData()
                 .stream()
-                .filter(appliance -> searchCriteria.stream().allMatch(param -> appliance.toString().contains(param)))
+                .filter(appliance -> searchCriteria
+                        .stream()
+                        .allMatch(param -> appliance.toString().contains(param)))
                 .toList();
     }
 

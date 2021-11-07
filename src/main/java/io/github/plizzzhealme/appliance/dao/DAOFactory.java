@@ -7,7 +7,7 @@ public final class DAOFactory {
 
     private static final DAOFactory instance = new DAOFactory();
 
-    private final ApplianceSourceDAO applianceDAO = new XMLApplianceDAO();
+    private final ApplianceDAO applianceDAO = new XMLApplianceDAO();
 
     private DAOFactory() {
     }
@@ -16,7 +16,7 @@ public final class DAOFactory {
         return instance;
     }
 
-    public ApplianceSourceDAO getApplianceDAO() {
+    public ApplianceDAO getApplianceDAO() {
         return applianceDAO;
     }
 }
